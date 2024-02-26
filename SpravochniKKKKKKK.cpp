@@ -1,88 +1,79 @@
-﻿#include "Spravochnik.h" // Assuming the class is defined in Spravochnik.h
-#include <conio.h>
+﻿#include "Spravochnik.h"
+
 
 int main() {
-    Spravochnik spravochnik;
-    char choice;
-    int menuOption = 1; // Track the currently selected menu option
+    Spravochnik spr;
+    char ch;
+    int menwovop = 1;
 
-    do {
-        system("cls"); // Clear screen for better visualization
+   while(true) {
+        system("cls");
         cout << "Menu:" << endl;
-        cout << (menuOption == 1 ? "* " : "  ") << "1. Search by firm" << endl;
-        cout << (menuOption == 2 ? "* " : "  ") << "2. Search by name" << endl;
-        cout << (menuOption == 3 ? "* " : "  ") << "3. Search by phone number" << endl;
-        cout << (menuOption == 4 ? "* " : "  ") << "4. Search by occupation" << endl;
-        cout << (menuOption == 5 ? "* " : "  ") << "5. Add user" << endl;
-        cout << (menuOption == 6 ? "* " : "  ") << "6. Print all contacts" << endl;
-        cout << (menuOption == 7 ? "* " : "  ") << "7. Exit" << endl;
+        cout << (menwovop == 1 ? "* " : "  ") << "1. Search by firm" << endl;
+        cout << (menwovop == 2 ? "* " : "  ") << "2. Search by name" << endl;
+        cout << (menwovop == 3 ? "* " : "  ") << "3. Search by phone number" << endl;
+        cout << (menwovop == 4 ? "* " : "  ") << "4. Search by occupation" << endl;
+        cout << (menwovop == 5 ? "* " : "  ") << "5. Add user" << endl;
+        cout << (menwovop == 6 ? "* " : "  ") << "6. Print all contacts" << endl;
+        cout << (menwovop == 7 ? "* " : "  ") << "7. Exit" << endl;
 
-        choice = _getch(); // Get character input without waiting for enter key
+        ch = _getch(); //ждем кнопочку
 
-        switch (choice) {
-        case 72: // Up arrow key
-            menuOption = (menuOption == 1) ? 7 : menuOption - 1;
+        switch (ch) {
+        case 72: //ловим стрелку вверх
+            menwovop = (menwovop == 1) ? 7 : menwovop - 1;
             break;
-        case 80: // Down arrow key
-            menuOption = (menuOption == 7) ? 1 : menuOption + 1;
+        case 80: //ловим стрелку вниз
+            menwovop = (menwovop == 7) ? 1 : menwovop + 1;
             break;
-        case 13: // Enter key
-            switch (menuOption) {
+        case 13: //ловим пробел
+            switch (menwovop) {
             case 1: {
                 string firm;
-                cout << "Enter firm name to search: ";
+                cout << "Firm: ";
                 cin >> firm;
-                spravochnik.searchbyfirm(firm);
+                spr.searchbyfirm(firm);
                 break;
-            }
+                    }
             case 2: {
                 string name;
-                cout << "Enter name to search: ";
+                cout << "Name: ";
                 cin >> name;
-                spravochnik.searchbyname(name);
+                spr.searchbyname(name);
                 break;
-            }
+                    }
             case 3: {
                 int number;
-                cout << "Enter phone number to search: ";
+                cout << "Phone number: ";
                 cin >> number;
-                spravochnik.searchbynumber(number);
+                spr.searchbynumber(number);
                 break;
-            }
+                    }
             case 4: {
                 string occupation;
-                cout << "Enter occupation to search: ";
+                cout << "Job: ";
                 cin >> occupation;
-                spravochnik.searchbyrod(occupation);
+                spr.searchbyrod(occupation);
                 break;
-            }
+                    }
             case 5: {
                 int count;
-                cout << "Enter number of users to add: ";
+                cout << "Quantity: ";
                 cin >> count;
-                spravochnik.adduser(count);
+                spr.adduser(count);
                 break;
-            }
+                    }
             case 6: {
-                spravochnik.printall();
+                spr.printall();
                 break;
-            }
+                    }
             case 7: {
-                cout << "Exiting..." << endl;
-                break;
+                cout << "ExXXIT, NIGGA" << endl;
+                return 0;
+                    }
             }
-            default: {
-                cout << "Invalid choice. Please try again." << endl;
-                break;
-            }
-            }
-            cout << "Press any key to continue...";
-            _getch(); // Wait for any key press before continuing
-            break;
-        default: // Handle other keys
-            break;
+            cout << "----------click smth pls----------";
+            _getch(); //опять ждем кнопочку
         }
-    } while (choice != '7');
-
-    return 0;
+    }
 }
