@@ -1,7 +1,7 @@
 # Console Reference
 
-This program was designed to work with contacts and information about them. **It supports saving contacts in the file.** It's version 1.2 and it works in the console. 
-In the next version I'm gonna move it in to __SFML window__.
+This program was designed to work with contacts and information about them. **It supports saving contacts in the file.** It's a version 1.2 and it works in the console. 
+In the next version I'm going to move it into __SFML window__.
 
 ## Running the programm
 
@@ -13,7 +13,7 @@ I've realised these functions:
 - Searching by name, firm, phone number, occupation
 - Animation in the console with the '*' symbol.
 
-### Let's discuss some elements from this list
+### Clarification
 1) I wait for the buttons with the command _getch()
 2) I use $sstream$ library to work with files. We need to save our contacts if we $don't$ want to lose them after closing the console.
 3) In this version we use $vectors$ to keep information about contacts. The next version will work with associative containers, such as unordered_map, set, pair, and others.
